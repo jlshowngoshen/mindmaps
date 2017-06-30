@@ -75,3 +75,8 @@ a:focus{
     background-image: url("../img/ajax-loader.gif");
     background-repeat: no-repeat;
 }
+
+.fp__overlay{
+    /* fix for filepickersaver dialog */
+    z-index: 5003 !important;
+}

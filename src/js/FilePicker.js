@@ -12,25 +12,6 @@ mindmaps.FilePicker = function (eventBus, mindmapModel) {
         filepicker.setKey('P9tQ4bicRwyIe8ZUsny5');
 
         var mimetype = "application/json";
-
-        var openOptions = {
-            modal: true,
-            services: [
-                filepicker.SERVICES.GOOGLE_DRIVE,
-                filepicker.SERVICES.DROPBOX,
-                filepicker.SERVICES.BOX,
-                filepicker.SERVICES.URL
-            ]
-        };
-
-        var saveOptions = {
-            modal: true,
-            services: [
-                filepicker.SERVICES.GOOGLE_DRIVE,
-                filepicker.SERVICES.DROPBOX,
-                filepicker.SERVICES.BOX,
-            ]
-        };
     }
 
     /**
@@ -44,42 +25,52 @@ mindmaps.FilePicker = function (eventBus, mindmapModel) {
             return;
         }
 
-        filepicker.getFile(mimetype, openOptions, function (url, data) {
-            // load callback
-            options.load && options.load();
+        filepicker.pick(
+            {
+                //mimetype: mimetype,
+                extension: '.json',
+                // hide: true
+            },
+            function (data) {
+                console.log(JSON.stringify(data));
 
-            // load mindmap
-            $.ajax({
-                url: url,
-                success: function (data) {
+                // load mindmap
+                $.ajax({
+                    url: data.url,
+                    success: function (data) {
 
-                    try {
-                        // convert to object first if response is a string
-                        if (Object.prototype.toString.call(data) == '[object String]') {
-                            data = JSON.parse(data);
+                        try {
+                            // convert to object first if response is a string
+                            if (Object.prototype.toString.call(data) == '[object String]') {
+                                data = JSON.parse(data);
+                            }
+
+                            var doc = mindmaps.Document.fromObject(data);
+                        } catch (e) {
+                            eventBus.publish(mindmaps.Event.NOTIFICATION_ERROR, 'File is not a valid mind map!');
+                            throw new Error('Error while parsing map from cloud', e);
                         }
 
-                        var doc = mindmaps.Document.fromObject(data);
-                    } catch (e) {
-                        eventBus.publish(mindmaps.Event.NOTIFICATION_ERROR, 'File is not a valid mind map!');
-                        throw new Error('Error while parsing map from cloud', e);
-                    }
+                        mindmapModel.setDocument(doc);
 
-                    mindmapModel.setDocument(doc);
+                        // execute callback
+                        if (options.success) {
+                            options.success(doc);
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        if (options.error) {
+                            options.error("Error: Could not open mind map!");
+                        }
+                        throw new Error('Error while loading map from filepicker. ' + textStatus + ' ' + errorThrown);
+                    }
+                });
 
-                    // execute callback
-                    if (options.success) {
-                        options.success(doc);
-                    }
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    if (options.error) {
-                        options.error("Error: Could not open mind map!");
-                    }
-                    throw new Error('Error while loading map from filepicker. ' + textStatus + ' ' + errorThrown);
-                }
-            });
-        });
+            },
+            function (FPError) {
+                console.log(FPError.toString());
+            }
+        );
     };
 
     /**
@@ -95,8 +86,7 @@ mindmaps.FilePicker = function (eventBus, mindmapModel) {
             return;
         }
 
-        var doc = mindmapModel.getDocument();
-        var data = doc.prepareSave().serialize()
+        var data = mindmapModel.getDocument().prepareSave().serialize();
 
         var success = function (url) {
             console.log('saved to:', url);
@@ -108,8 +98,29 @@ mindmaps.FilePicker = function (eventBus, mindmapModel) {
         };
 
         // save dialog
-        filepicker.getUrlFromData(data, function (dataUrl) {
-            filepicker.saveAs(dataUrl, mimetype, saveOptions, success);
-        });
+        options.filename = mindmapModel.getMindMap().getRoot().getCaption() + ".json";
+        options.mimetype = mimetype;
+
+        filepicker.store(
+            data,
+            options,
+            function (blob) {
+                filepicker.exportFile(
+                    blob,
+                    function (Blob) {
+                        success(Blob.url);
+                    }
+                );
+
+                console.log("Store successful:", JSON.stringify(blob));
+            },
+            function (FPError) {
+                //  console.log(FPError.toString()); - print errors to console
+            },
+            function (progress) {
+                console.log("Loading: " + progress + "%");
+            }
+        );
     }
 }
+;
