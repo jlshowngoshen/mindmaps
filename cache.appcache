@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# timestamp 1498857760194
+# timestamp 1498861807614
 
 CACHE:
 index.html
@@ -26,8 +26,10 @@ img/grid.gif
 img/plus-minus.png
 img/transparent.png
 img/ajax-loader.gif
+js/libs/jquery.min.js
+js/libs/filepicker.js
+js/libs/FileSaver.min.js
 js/script.js
-media/downloadify.swf
 http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js
 
 NETWORK:
