@@ -26,6 +26,9 @@ img/grid.gif
 img/plus-minus.png
 img/transparent.png
 img/ajax-loader.gif
+js/libs/jquery.min.js
+js/libs/filepicker.js
+js/libs/FileSaver.min.js
 js/script.js
 http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js
 
