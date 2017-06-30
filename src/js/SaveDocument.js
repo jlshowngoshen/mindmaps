@@ -149,8 +149,7 @@ mindmaps.SaveDocumentPresenter = function (eventBus, mindmapModel, view, autosav
      * @returns {String}
      */
     view.fileContentsRequested = function () {
-        var doc = mindmapModel.getDocument();
-        return doc.prepareSave().serialize();
+        return mindmapModel.getDocument().prepareSave().serialize();
     };
 
     /**
