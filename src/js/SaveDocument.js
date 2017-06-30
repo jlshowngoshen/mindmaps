@@ -48,6 +48,8 @@ mindmaps.SaveDocumentView = function() {
     function (){
         var filename = self.fileNameRequested();
         var content = self.fileContentsRequested();
+        var blob = new Blob([content], {type: "text/plain;charset=utf-8"});
+        saveAs(blob, filename);
     });
     /*.downloadify({
     filename : function() {
