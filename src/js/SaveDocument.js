@@ -19,6 +19,9 @@ mindmaps.SaveDocumentView = function() {
     }
   });
 
+    //@TODO: remove this awful fix
+    // I'm really sorry for this awful and ugly hotfix
+    $dialog.splice(1, 1);
 
   var $saveCloudStorageButton = $("#button-save-cloudstorage").button().click(
     function() {
@@ -42,10 +45,11 @@ mindmaps.SaveDocumentView = function() {
     });
 
   var $hddSaveButton = $("#button-save-hdd").button().click(
-      function (){
-
-      });
-    /*downloadify({
+    function (){
+        var filename = self.fileNameRequested();
+        var content = self.fileContentsRequested();
+    });
+    /*.downloadify({
     filename : function() {
       if (self.fileNameRequested) {
         return self.fileNameRequested();
