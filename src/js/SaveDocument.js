@@ -51,31 +51,6 @@ mindmaps.SaveDocumentView = function() {
         var blob = new Blob([content], {type: "text/plain;charset=utf-8"});
         saveAs(blob, filename);
     });
-    /*.downloadify({
-    filename : function() {
-      if (self.fileNameRequested) {
-        return self.fileNameRequested();
-      }
-    },
-    data : function() {
-      if (self.fileContentsRequested) {
-        return self.fileContentsRequested();
-      }
-    },
-    onComplete : function() {
-      if (self.saveToHddComplete) {
-        self.saveToHddComplete();
-      }
-    },
-    onError : function() {
-      console.log("error while saving to hdd");
-    },
-    swf : 'media/downloadify.swf',
-    downloadImage : 'img/transparent.png',
-    width : 65,
-    height : 29,
-    append : true
-  });*/
 
   this.setAutoSaveCheckboxState = function(checked) {
     $autoSaveCheckbox.prop("checked", checked);
