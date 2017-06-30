@@ -6,65 +6,65 @@
  * @param {mindmaps.EventBus} eventBus
  * @param {mindmaps.MindMapModel} mindmapModel
  */
-mindmaps.AutoSaveController = function(eventBus, mindmapModel) {
-  var SAVE_INTERVAL = 1000 * 60; // 1 minute
-  var timer = null;
+mindmaps.AutoSaveController = function (eventBus, mindmapModel) {
+    var SAVE_INTERVAL = 1000 * 60; // 1 minute
+    var timer = null;
 
-  function save() {
-    console.debug("Autosaving...");
-    mindmapModel.saveToLocalStorage();
-  }
-
-  function autosave() {
-    if (!timer) {
-      timer = setInterval(save, SAVE_INTERVAL);
+    function save() {
+        console.debug("Autosaving...");
+        mindmapModel.saveToLocalStorage();
     }
-  }
 
-  function stopAutosave() {
-    if (timer) {
-      clearInterval(timer);
-      timer = null;
+    function autosave() {
+        if (!timer) {
+            timer = setInterval(save, SAVE_INTERVAL);
+        }
     }
-  }
 
-  /**
-   * Enable autosave.
-   */
-  this.enable = function() {
-    autosave();
-    mindmapModel.getDocument().setAutoSave(true);
-  }
-
-  /**
-   * Disable autosave.
-   */
-  this.disable = function() {
-    stopAutosave();
-    mindmapModel.getDocument().setAutoSave(false);
-  }
-
-  this.isEnabled = function() {
-    return mindmapModel.getDocument().isAutoSave();
-  }
-
-  this.init = function() {
-    eventBus.subscribe(mindmaps.Event.DOCUMENT_OPENED, this.documentOpened
-        .bind(this));
-
-    eventBus.subscribe(mindmaps.Event.DOCUMENT_CLOSED, this.documentClosed
-        .bind(this));
-  }
-
-  this.documentOpened = function(doc) {
-    if (this.isEnabled()) {
-      autosave();
+    function stopAutosave() {
+        if (timer) {
+            clearInterval(timer);
+            timer = null;
+        }
     }
-  }
 
-  this.documentClosed = function() {
-    stopAutosave();
-  }
+    /**
+     * Enable autosave.
+     */
+    this.enable = function () {
+        autosave();
+        mindmapModel.getDocument().setAutoSave(true);
+    }
 
-  this.init();
+    /**
+     * Disable autosave.
+     */
+    this.disable = function () {
+        stopAutosave();
+        mindmapModel.getDocument().setAutoSave(false);
+    }
+
+    this.isEnabled = function () {
+        return mindmapModel.getDocument().isAutoSave();
+    }
+
+    this.init = function () {
+        eventBus.subscribe(mindmaps.Event.DOCUMENT_OPENED, this.documentOpened
+            .bind(this));
+
+        eventBus.subscribe(mindmaps.Event.DOCUMENT_CLOSED, this.documentClosed
+            .bind(this));
+    }
+
+    this.documentOpened = function (doc) {
+        if (this.isEnabled()) {
+            autosave();
+        }
+    }
+
+    this.documentClosed = function () {
+        stopAutosave();
+    }
+
+    this.init();
 }

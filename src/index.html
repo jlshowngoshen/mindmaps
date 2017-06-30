@@ -7,18 +7,18 @@
 <html manifest="cache.appcache">
 /PRODUCTION -->
 <head>
-<meta charset="utf-8">
-<meta name="description" content="mindmaps is an HTML5 based mind mapping app. It lets you create neat looking mind maps in the browser." />
-<meta name="keywords" content="mind maps html5 mindmaps offline easy intuitive" />
-<meta name="google" content="notranslate"/>
-<title>mindmaps</title>
-<link rel="icon" type="image/png" href="img/favicon.png" />
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/app.css">
-<link rel="stylesheet" href="css/Aristo/jquery-ui-1.8.7.custom.css" />
-<link rel="stylesheet" href="css/minicolors/jquery.miniColors.css">
+    <meta charset="utf-8">
+    <meta name="description" content="mindmaps is an HTML5 based mind mapping app. It lets you create neat looking mind maps in the browser."/>
+    <meta name="keywords" content="mind maps html5 mindmaps offline easy intuitive"/>
+    <meta name="google" content="notranslate"/>
+    <title>mindmaps</title>
+    <link rel="icon" type="image/png" href="img/favicon.png"/>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/Aristo/jquery-ui-1.8.7.custom.css"/>
+    <link rel="stylesheet" href="css/minicolors/jquery.miniColors.css">
 
-<script id="template-float-panel" type="text/x-jquery-tmpl">
+    <script id="template-float-panel" type="text/x-jquery-tmpl">
 <div class="ui-widget ui-dialog ui-corner-all ui-widget-content float-panel no-select">
   <div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix">
     <span class="ui-dialog-title">${title}</span>
@@ -29,9 +29,10 @@
   <div class="ui-dialog-content ui-widget-content">
   </div>
 </div>
-</script>
 
-<script id="template-notification" type="text/x-jquery-tmpl">
+    </script>
+
+    <script id="template-notification" type="text/x-jquery-tmpl">
 <div class="notification">
   {{if closeButton}}
   <a href="#" class="close-button">x</a>
@@ -41,17 +42,19 @@
   {{/if}}
   <div class="content">{{html content}}</div>
 </div>
-</script>
 
-<script id="template-open-table-item" type="text/x-jquery-tmpl">
+    </script>
+
+    <script id="template-open-table-item" type="text/x-jquery-tmpl">
 <tr>
   <td><a class="title" href="#">${title}</a></td>
   <td>${$item.format(dates.modified)}</td>
   <td><a class="delete" href="#">delete</a></td>
 </tr>
-</script>
 
-<script id="template-open" type="text/x-jquery-tmpl">
+    </script>
+
+    <script id="template-open" type="text/x-jquery-tmpl">
 <div id="open-dialog" class="file-dialog" title="Open mind map">
   <h1><span class="highlight">New!</span> From the Cloud: Dropbox and more</h1>
   <p>Open, save and share your mind maps online in your favorite cloud storage. Supports Google Drive, Dropbox and more! Powered by <a href="http://www.filepicker.io" target="_blank">filepicker.io</a>.</p>
@@ -78,9 +81,10 @@
     <input type="file" />
   </div>
 </div>
-</script>
 
-<script id="template-save" type="text/x-jquery-tmpl">
+    </script>
+
+    <script id="template-save" type="text/x-jquery-tmpl">
 <div id="save-dialog" class="file-dialog" title="Save mind map">
   <h1><span class="highlight">New!</span> In the Cloud: Dropbox and more</h1>
   <p>Open, save and share your mind maps online in your favorite cloud storage. Supports Google Drive, Dropbox and more! Powered by <a href="http://www.filepicker.io" target="_blank">filepicker.io</a>.</p>
@@ -97,9 +101,10 @@
   <p>Save the mind map as a file on your computer.</p>
   <button id="button-save-hdd">Save</div>
 </div>
-</script>
 
-<script id="template-navigator" type="text/x-jquery-tmpl">
+    </script>
+
+    <script id="template-navigator" type="text/x-jquery-tmpl">
 <div id="navigator">
   <div class="active">
     <div id="navi-content">
@@ -118,10 +123,11 @@
   <div class="inactive">
   </div>
 </div>
-</script>
+
+    </script>
 
 
-<script id="template-inspector" type="text/x-jquery-tmpl">
+    <script id="template-inspector" type="text/x-jquery-tmpl">
 <div id="inspector">
   <div id="inspector-content">
     <table id="inspector-table">
@@ -172,118 +178,120 @@
     </table>
   </div>
 </div>
-</script>
 
-<script id="template-export-map" type="text/x-jquery-tmpl">
+    </script>
+
+    <script id="template-export-map" type="text/x-jquery-tmpl">
 <div id="export-map-dialog" title="Export mind map">
   <h2 class='image-description'>To download the map right-click the
     image and select "Save Image As"</h2>
   <div id="export-preview"></div>
 </div>
-</script>
+
+    </script>
 
 </head>
 <body>
-  <div id="print-area">
+<div id="print-area">
     <p class="print-placeholder">Please use the print option from the
-      mind map menu</p>
-  </div>
-  <!-- DEBUG -->
-  <div id="debug-warning">Running in DEBUG mode.</div>
-  <!-- /DEBUG -->
-  <div id="container">
+        mind map menu</p>
+</div>
+<!-- DEBUG -->
+<div id="debug-warning">Running in DEBUG mode.</div>
+<!-- /DEBUG -->
+<div id="container">
     <div id="topbar">
-      <div id="toolbar">
-        <div id="logo" class="logo-bg">
-          <span>mindmaps</span>
-        </div>
+        <div id="toolbar">
+            <div id="logo" class="logo-bg">
+                <span>mindmaps</span>
+            </div>
 
-        <div class="buttons">
-          <span class="buttons-left"> </span> <span class="buttons-right">
+            <div class="buttons">
+                <span class="buttons-left"> </span> <span class="buttons-right">
           </span>
-        </div>
+            </div>
 
-      </div>
+        </div>
     </div>
     <div id="canvas-container">
-      <div id="drawing-area" class="no-select"></div>
+        <div id="drawing-area" class="no-select"></div>
     </div>
     <div id="bottombar">
-      <div id="about">
-        <a href="about.html" target="_blank">About mindmaps</a> <span
-          style="padding: 0 4px;">|</span> <a style="font-weight: bold"
-          href="https://spreadsheets.google.com/a/drichard.org/spreadsheet/viewform?formkey=dEE3VzFWOFp6ZV9odEhhczVBUUdzc2c6MQ"
-          target="_blank">Feedback</a>
-      </div>
-      <div id="statusbar">
-        <div
-          class="buttons buttons-right buttons-small buttons-less-padding"></div>
-      </div>
+        <div id="about">
+            <a href="about.html" target="_blank">About mindmaps</a> <span
+                style="padding: 0 4px;">|</span> <a style="font-weight: bold"
+                                                    href="https://spreadsheets.google.com/a/drichard.org/spreadsheet/viewform?formkey=dEE3VzFWOFp6ZV9odEhhczVBUUdzc2c6MQ"
+                                                    target="_blank">Feedback</a>
+        </div>
+        <div id="statusbar">
+            <div
+                    class="buttons buttons-right buttons-small buttons-less-padding"></div>
+        </div>
     </div>
-  </div>
+</div>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-  <script src="//api.filepicker.io/v0/filepicker.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script src="//api.filepicker.io/v0/filepicker.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
 
-  <!-- DEBUG -->
-  <!-- set debug flag for all scripts. Will be removed in production -->
-  <script type="text/javascript">
+<!-- DEBUG -->
+<!-- set debug flag for all scripts. Will be removed in production -->
+<script type="text/javascript">
     var mindmaps = mindmaps || {};
     mindmaps.DEBUG = true;
-  </script>
-  <!-- /DEBUG -->
+</script>
+<!-- /DEBUG -->
 
-  <!-- JS:LIB:BEGIN -->
-  <script src="js/libs/jquery-ui-1.8.11.custom.min.js"></script>
-  <script src="js/libs/dragscrollable.js"></script>
-  <script src="js/libs/jquery.hotkeys.js"></script>
-  <script src="js/libs/jquery.mousewheel.js"></script>
-  <script src="js/libs/jquery.minicolors.js"></script>
-  <script src="js/libs/jquery.tmpl.js"></script>
-  <script src="js/libs/swfobject.js"></script>
-  <script src="js/libs/downloadify.min.js"></script>
-  <script src="js/libs/events.js"></script>
+<!-- JS:LIB:BEGIN -->
+<script src="js/libs/jquery-ui-1.8.11.custom.min.js"></script>
+<script src="js/libs/dragscrollable.js"></script>
+<script src="js/libs/jquery.hotkeys.js"></script>
+<script src="js/libs/jquery.mousewheel.js"></script>
+<script src="js/libs/jquery.minicolors.js"></script>
+<script src="js/libs/jquery.tmpl.js"></script>
+<script src="js/libs/swfobject.js"></script>
+<script src="js/libs/downloadify.min.js"></script>
+<script src="js/libs/events.js"></script>
 
-  <script src="js/MindMaps.js"></script>
-  <script src="js/Command.js"></script>
-  <script src="js/CommandRegistry.js"></script>
-  <script src="js/Action.js"></script>
-  <script src="js/Util.js"></script>
-  <script src="js/Point.js"></script>
-  <script src="js/Document.js"></script>
-  <script src="js/MindMap.js"></script>
-  <script src="js/Node.js"></script>
-  <script src="js/NodeMap.js"></script>
-  <script src="js/UndoManager.js"></script>
-  <script src="js/UndoController.js"></script>
-  <script src="js/ClipboardController.js"></script>
-  <script src="js/ZoomController.js"></script>
-  <script src="js/ShortcutController.js"></script>
-  <script src="js/HelpController.js"></script>
-  <script src="js/FloatPanel.js"></script>
-  <script src="js/Navigator.js"></script>
-  <script src="js/Inspector.js"></script>
-  <script src="js/ToolBar.js"></script>
-  <script src="js/StatusBar.js"></script>
-  <script src="js/CanvasDrawingTools.js"></script>
-  <script src="js/CanvasView.js"></script>
-  <script src="js/CanvasPresenter.js"></script>
-  <script src="js/ApplicationController.js"></script>
-  <script src="js/MindMapModel.js"></script>
-  <script src="js/NewDocument.js"></script>
-  <script src="js/OpenDocument.js"></script>
-  <script src="js/SaveDocument.js"></script>
-  <script src="js/MainViewController.js"></script>
-  <script src="js/Storage.js"></script>
-  <script src="js/Event.js"></script>
-  <script src="js/Notification.js"></script>
-  <script src="js/StaticCanvas.js"></script>
-  <script src="js/PrintController.js"></script>
-  <script src="js/ExportMap.js"></script>
-  <script src="js/AutoSaveController.js"></script>
-  <script src="js/FilePicker.js"></script>
-  <!-- JS:LIB:END -->
+<script src="js/MindMaps.js"></script>
+<script src="js/Command.js"></script>
+<script src="js/CommandRegistry.js"></script>
+<script src="js/Action.js"></script>
+<script src="js/Util.js"></script>
+<script src="js/Point.js"></script>
+<script src="js/Document.js"></script>
+<script src="js/MindMap.js"></script>
+<script src="js/Node.js"></script>
+<script src="js/NodeMap.js"></script>
+<script src="js/UndoManager.js"></script>
+<script src="js/UndoController.js"></script>
+<script src="js/ClipboardController.js"></script>
+<script src="js/ZoomController.js"></script>
+<script src="js/ShortcutController.js"></script>
+<script src="js/HelpController.js"></script>
+<script src="js/FloatPanel.js"></script>
+<script src="js/Navigator.js"></script>
+<script src="js/Inspector.js"></script>
+<script src="js/ToolBar.js"></script>
+<script src="js/StatusBar.js"></script>
+<script src="js/CanvasDrawingTools.js"></script>
+<script src="js/CanvasView.js"></script>
+<script src="js/CanvasPresenter.js"></script>
+<script src="js/ApplicationController.js"></script>
+<script src="js/MindMapModel.js"></script>
+<script src="js/NewDocument.js"></script>
+<script src="js/OpenDocument.js"></script>
+<script src="js/SaveDocument.js"></script>
+<script src="js/MainViewController.js"></script>
+<script src="js/Storage.js"></script>
+<script src="js/Event.js"></script>
+<script src="js/Notification.js"></script>
+<script src="js/StaticCanvas.js"></script>
+<script src="js/PrintController.js"></script>
+<script src="js/ExportMap.js"></script>
+<script src="js/AutoSaveController.js"></script>
+<script src="js/FilePicker.js"></script>
+<!-- JS:LIB:END -->
 
 </body>
 </html>
