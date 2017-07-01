@@ -38,6 +38,13 @@ Alternatively, you can launch a local debug server with `npm start` which starts
 
 ### Installation steps
 
+#### Install from built branch
+
+* `git clone -b gh-pages --single-branch https://github.com/lgg/mindmaps`
+* now, you have latest version in `YOURPATH/mindmaps` folder
+
+#### Install from sources
+
 * `git clone https://github.com/lgg/mindmaps && cd mindmaps`
 * `npm run build`
 * now, you have latest version in `YOURPATH/mindmaps/bin/` folder
