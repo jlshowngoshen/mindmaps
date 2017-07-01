@@ -28,7 +28,7 @@
  * @namespace Application wide namespace for mindmaps.
  */
 var mindmaps = mindmaps || {};
-mindmaps.VERSION = "0.7.2";
+mindmaps.VERSION = "1.0.0";
 
 
 // experimental app cache invalidator. from:
