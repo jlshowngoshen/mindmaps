@@ -4,7 +4,7 @@ mindmaps is a prototype of an HTML5 based mind mapping application. It lets you 
 
 ## Try it out
 
-The latest stable build is hosted [here] (https://lgg.github.io/mindmaps/).
+The latest stable build is hosted [here](https://lgg.github.io/mindmaps/).
 
 ## HTML5 goodness
 
