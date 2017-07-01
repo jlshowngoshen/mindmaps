@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# timestamp 1498862298317
+# timestamp 1498868037989
 
 CACHE:
 index.html
@@ -27,7 +27,6 @@ img/plus-minus.png
 img/transparent.png
 img/ajax-loader.gif
 js/script.js
-http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js
 
 NETWORK:
 *
