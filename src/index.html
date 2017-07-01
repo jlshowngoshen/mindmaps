@@ -230,6 +230,8 @@
     </div>
 </div>
 
+<script src="//api.filepicker.io/v2/filepicker.js"></script>
+
 <!-- DEBUG -->
 <!-- set debug flag for all scripts. Will be removed in production -->
 <script type="text/javascript">
@@ -239,17 +241,22 @@
 <!-- /DEBUG -->
 
 <!-- JS:LIB:BEGIN -->
+<!--3rd party libraries, can be hosted on cdn-->
 <script src="js/libs/jquery.min.js"></script>
-<script src="js/libs/filepicker2.js"></script>
-<script src="js/libs/FileSaver.min.js"></script>
 <script src="js/libs/jquery-ui-1.8.11.custom.min.js"></script>
-<script src="js/libs/dragscrollable.js"></script>
-<script src="js/libs/jquery.hotkeys.js"></script>
 <script src="js/libs/jquery.mousewheel.js"></script>
-<script src="js/libs/jquery.minicolors.js"></script>
+<script src="js/libs/FileSaver.min.js"></script>
+
+<!--no public cdn for this-->
+<script src="js/libs/jquery.hotkeys.js"></script>
 <script src="js/libs/jquery.tmpl.js"></script>
+
+<!--modified libraries-->
+<script src="js/libs/jquery.minicolors.js"></script>
+<script src="js/libs/dragscrollable.js"></script>
 <script src="js/libs/events.js"></script>
 
+<!--mindmaps sources-->
 <script src="js/MindMaps.js"></script>
 <script src="js/Command.js"></script>
 <script src="js/CommandRegistry.js"></script>
