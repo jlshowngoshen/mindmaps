@@ -52,6 +52,7 @@ Also you can host it on your Github Pages
 * Although the application runs fine if you launch `/src/index.html`, be aware that this is just the DEBUG mode for development. 
 In debug mode quite a lot of output is sent to the console, 
 ApplicationCache is deactivated and all script files are served individually and uncompressed.
+* List of used JS libraries you can find [here](./js-libs.md). 
 
 ## License
 
