@@ -22,8 +22,6 @@
   },
   "scripts": {
     "build": "jake",
-    "build-cdn": "jake",
-    "build-local": "jake",
     "deploy": "npm run build && gh-pages -d bin"
   },
   "license": "AGPL-3.0",
